@@ -68,5 +68,40 @@ body {
     margin-left: 30px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
+  /* Estilos para los productos */
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .producto {
+    width: 30%; /* Ancho de cada producto (el 30% para que haya espacio entre ellos) */
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .producto img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .descripcion {
+    margin-top: 10px;
+  }
+  
+  /* Limpiar la fila después de tres elementos */
+  .clearfix {
+    clear: both;
+  }
+  
+  .descripcion {
+    margin-bottom: 20px;
+  }
+  
+  .descripcion h2 {
+    font-size: 24px;
+  }
+  
   
   

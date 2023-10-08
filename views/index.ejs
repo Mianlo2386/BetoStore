@@ -14,7 +14,6 @@
       
   <div class="menu">
     <nav>
-        
         <ul>
           <li><a href="/">Inicio</a></li>
           <li><a href="/productos">Productos</a></li>
@@ -28,7 +27,24 @@
       <h1>Bienvenido a BetoStore</h1>
       <p>Encuentra los mejores productos de anime aquí.</p>
     </div>
-    <!-- Contenido adicional de la página principal -->
+    <section class="productos">
+        <% for (let i = 0; i < productos.length; i++) { %>
+          <div class="producto">
+            <img src="<%= productos[i].imagen %>" alt="Producto <%= i + 1 %>">
+            <div class="descripcion">
+              <h2>Producto <%= i + 1 %></h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget semper velit, non auctor ex.
+                Sed eu mauris leo. Duis vel ex id justo ullamcorper venenatis.
+              </p>
+            </div>
+          </div>
+          <% if ((i + 1) % 3 === 0) { %>
+            <div class="clearfix"></div> <!-- Limpiar la fila después de tres elementos -->
+          <% } %>
+        <% } %>
+      </section>
+      
   </main>
   
   <footer>
