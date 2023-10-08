@@ -1,0 +1,72 @@
+/* public/css/styles.css */
+
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: black;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 60px; /* Ajusta el tamaño de tu logo */
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  /* public/css/styles.css */
+
+/* Estilos para el hero */
+.hero {
+    background-image: url('/images/hero-background.jpg'); /* Ruta de la imagen de fondo */
+    background-size: contain;
+    background-position: center;
+    height: 1000px; /* Ajusta la altura según tus necesidades */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: self-start;
+    color: #fff;
+  }
+  
+  /* Estilos adicionales para el contenido del hero */
+  .hero h1 {
+    margin-left: 30px;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    /* Otros estilos */
+  }
+  
+  
+  .hero p {
+    margin-left: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  
