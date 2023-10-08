@@ -68,7 +68,31 @@ body {
     margin-left: 30px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
+  .presentacion-contenedor {
+    display: flex; /* Utilizar flexbox para alinear elementos en fila */
+    align-items: center; /* Alinear verticalmente los elementos al centro */
+  }
+  
+  .presentacion-imagen {
+    flex: 1; /* La imagen ocupa la mitad del espacio disponible */
+  }
+  
+  .presentacion-texto {
+    flex: 1; /* El texto ocupa la mitad del espacio disponible */
+    padding: 20px; /* Agregar un espacio entre la imagen y el texto */
+  }
+  
   /* Estilos para los productos */
+  .logo-pequeno {
+    display: flex;
+    align-items: center; /* Alinear verticalmente el logo */
+    height: 50px; /* Ajustar la altura según sea necesario */
+  }
+  
+  .logo-pequeno img {
+    max-height: 100%; /* La imagen se ajustará al alto de su contenedor */
+  }
+  
 .productos {
     display: flex;
     flex-wrap: wrap;
@@ -76,15 +100,21 @@ body {
   }
   
   .producto {
-    width: 30%; /* Ancho de cada producto (el 30% para que haya espacio entre ellos) */
+    width: 30%;
     margin-bottom: 20px;
     text-align: center;
+    padding-top: 20px; /* Agregar un padding superior */
   }
+  
   
   .producto img {
     max-width: 100%;
+    max-height: 800px; /* Establece una altura máxima para igualar el tamaño */
+    width: auto;
     height: auto;
+    object-fit: contain; /* Ajusta la imagen sin distorsionarla */
   }
+  
   
   .descripcion {
     margin-top: 10px;
@@ -102,6 +132,22 @@ body {
   .descripcion h2 {
     font-size: 24px;
   }
+  .buscador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajusta la altura según sea necesario */
+  }
+  .buscador input[type="text"] {
+    font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
+    width: 300px; /* Ajusta el ancho según sea necesario */
+    padding: 10px; /* Añade un relleno para hacerlo más grande */
+  }
   
+  .buscador button {
+    font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
+    padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
+  }
+    
   
   

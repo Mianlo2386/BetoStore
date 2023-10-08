@@ -16,4 +16,20 @@ app.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);
 });
 
+app.get('/productos', (req, res) => {
+  res.render('productos', { productos });
+});
+
+app.get('/buscar', (req, res) => {
+  const query = req.query.q;
+  // Realiza la búsqueda por ID o descripción
+  const resultados = productos.filter(producto =>
+    producto.id === parseInt(query) || producto.descripcion.includes(query)
+  );
+  
+  res.render('resultados', { resultados });
+});
+
+
+
 
