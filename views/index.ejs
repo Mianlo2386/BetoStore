@@ -18,6 +18,7 @@
           <li><a href="/">Inicio</a></li>
           <li><a href="/productos">Productos</a></li>
           <li><a href="/contacto">Contacto</a></li>
+          
         </ul>
       </div>
     </nav>
@@ -45,6 +46,37 @@
     </div>
   </div>
 </section>
+
+<!-- <section class="productos-destacados">
+  <h2>Productos Destacados</h2>
+  <div class="productos-destacados-container">
+    <% for (let i = 0; i < productosDestacados.length; i++) { %>
+      <div class="producto-destacado">
+        <img src="<%= productosDestacados[i].imagen %>" alt="Producto <%= i + 1 %>">
+        <p><%= productosDestacados[i].descripcion %></p>
+        <a href="/producto/<%= productosDestacados[i].id %>">Ver Detalles</a>
+      </div>
+    <% } %>
+  </div>
+</section> -->
+
+<!-- Sección de productos destacados -->
+<section class="productos-destacados">
+  <h2>Productos Destacados</h2>
+  <div class="productos-destacados-container">
+    <% for (let i = 0; i < productosDestacados.length; i++) { %>
+      <div class="producto-destacado">
+        <div class="etiqueta-descuento"><%= productosDestacados[i].descuento %></div>
+        <img src="<%= productosDestacados[i].imagen %>" alt="Producto <%= i + 1 %>">
+        <h3><%= productosDestacados[i].nombre %></h3>
+        <p><%= productosDestacados[i].descripcion %></p>
+        <a href="/producto/<%= productosDestacados[i].id %>">Ver Detalles</a>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+
 
   </main>
   

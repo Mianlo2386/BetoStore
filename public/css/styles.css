@@ -148,6 +148,133 @@ body {
     font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
     padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
   }
-    
-  
+   /* Estilos para la sección de contacto */
+.contacto-datos {
+  background-color: #222; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 20px;
+}
+
+.contacto-datos h2 {
+  font-size: 24px;
+}
+
+.contacto-datos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contacto-datos li {
+  margin-bottom: 10px;
+}
+
+.contacto-formulario {
+  background-color: #333; /* Fondo oscuro ligeramente más claro */
+  color: #fff; /* Texto blanco */
+  padding: 20px;
+}
+
+.contacto-formulario h2 {
+  font-size: 24px;
+}
+
+.contacto-formulario label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contacto-formulario input[type="text"],
+.contacto-formulario input[type="email"],
+.contacto-formulario textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  background: #444; /* Fondo más oscuro para los campos de entrada */
+  color: #fff; /* Texto blanco */
+}
+
+.contacto-formulario button {
+  background-color: #ff6600; /* Botón de color naranja */
+  color: #fff; /* Texto blanco */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.contacto-formulario button:hover {
+  background-color: #ff4500; /* Cambio de color al pasar el ratón */
+}
+ 
+ /* Estilos para la sección de Productos Destacados */
+.productos-destacados {
+  margin-top: 20px;
+}
+
+.productos-destacados h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.productos-destacados-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos para la sección de Productos Destacados */
+.producto-destacado {
+  position: relative;
+  width: 30%; /* Ajusta el ancho según tus necesidades */
+  background: #f5f5f5;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.producto-destacado img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo para la etiqueta de descuento */
+.etiqueta-descuento {
+  position: absolute;
+  top: 10%; /* Ajusta la posición vertical */
+  left: 0;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
+}
+
+
+
+
+.producto-destacado p {
+  font-size: 16px;
+}
+
+.producto-destacado a {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.producto-destacado a:hover {
+  background: #0056b3;
+}
+ 
   
