@@ -19,6 +19,9 @@ app.listen(port, () => {
 
 // Resto de tus rutas...
 
+app.get('/productos', (req, res) => {
+  res.render('productos', { productos });
+});
 
 
 
