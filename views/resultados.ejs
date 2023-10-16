@@ -9,21 +9,16 @@
 <body> 
   <%- include(header) %>
   
-    <section class="resultados">
-        <h1>Resultados de la búsqueda</h1>
-        <% for (let i = 0; i < resultados.length; i++) { %>
-          <div class="producto">
-            <img src="<%= resultados[i].imagen %>" alt="Producto <%= resultados[i].id %>">
-            <div class="descripcion">
-              <h2>Producto <%= resultados[i].id %></h2>
-              <p><%= resultados[i].descripcion %></p>
-            </div>
-          </div>
-        <% } %>
-      </section>
-      
-      
-      
-      
-</body>
-</html>
+  <section class="resultados">
+    <h1>Resultados de la búsqueda</h1>
+    <% for (let i = 0; i < resultados.length; i++) { %>
+      <div class="producto producto-pagina-resultados"> <!-- Agregamos la clase aquí -->
+        <img src="<%= resultados[i].imagen %>" alt="Producto <%= resultados[i].id %>">
+        <div class="descripcion">
+          <h2>Producto <%= resultados[i].id %></h2>
+          <p><%= resultados[i].descripcion %></p>
+        </div>
+      </div>
+    <% } %>
+  </section>
+  

@@ -8,11 +8,6 @@
 </head>
 <body>
   <%- include(header) %>   
- <!-- Logo arriba a la izquierda -->
- <!-- <div class="logo-pequeno">
-    <img src="/images/logo.png" alt="Logo de la tienda">
-  </div> -->
-
   <div class="buscador">
     <form action="/buscar" method="GET">
       <input type="text" name="q" placeholder="Buscar productos">
@@ -22,7 +17,7 @@
   
   <section class="productos">
     <% for (let i = 0; i < productos.length; i++) { %>
-      <div class="producto">
+      <div class="producto producto-pagina-productos"> <!-- Agregamos la clase aquí -->
         <img src="<%= productos[i].imagen %>" alt="Producto <%= i + 1 %>">
         <div class="descripcion">
           <h2>Producto <%= i + 1 %></h2>
@@ -34,6 +29,4 @@
       <% } %>
     <% } %>
   </section>
-</body>
-</html>
-
+  

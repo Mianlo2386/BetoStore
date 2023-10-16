@@ -109,11 +109,22 @@ nav {
   justify-content: space-between;
 }
 
-.producto {
-  width: 30%;
+/* Estilos para los productos en la página de productos (tres columnas centradas) */
+.producto.producto-pagina-productos {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
   margin-bottom: 20px;
-  text-align: center;
-  padding-top: 20px; /* Agregar un padding superior */
+  width: calc(33.33% - 20px); /* Divide el ancho en tres columnas con margen */
+  margin-right: 20px; /* Espacio entre las columnas */
+  display: inline-block; /* Muestra los productos en línea en lugar de uno debajo del otro */
+  vertical-align: top; /* Alinea los productos en la parte superior */
+  /* Agregar estilos adicionales según tu preferencia */
+}
+
+/* Agrega esta regla para la página de productos */
+.productos .producto {
+  width: 30%;
 }
 
 
@@ -124,7 +135,6 @@ nav {
   height: auto;
   object-fit: contain; /* Ajusta la imagen sin distorsionarla */
 }
-
 
 .descripcion {
   margin-top: 10px;
@@ -142,6 +152,7 @@ nav {
 .descripcion h2 {
   font-size: 24px;
 }
+
 .buscador {
   display: flex;
   justify-content: center;
@@ -149,6 +160,7 @@ nav {
   height: 100px; /* Ajusta la altura según sea necesario */
   margin-top: 60px;
 }
+
 .buscador input[type="text"] {
   font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
   width: 300px; /* Ajusta el ancho según sea necesario */
@@ -159,131 +171,173 @@ nav {
   font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
   padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
 }
- /* Estilos para la sección de contacto */
+
+/* Estilos para la sección de contacto */
 .contacto-datos {
-background-color: #222; /* Fondo oscuro */
-color: #fff; /* Texto blanco */
-padding: 20px;
+  background-color: #222; /* Fondo oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 20px;
 }
 
 .contacto-datos h2 {
-font-size: 24px;
+  font-size: 24px;
 }
 
 .contacto-datos ul {
-list-style: none;
-padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .contacto-datos li {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .contacto-formulario {
-background-color: #333; /* Fondo oscuro ligeramente más claro */
-color: #fff; /* Texto blanco */
-padding: 20px;
+  background-color: #333; /* Fondo oscuro ligeramente más claro */
+  color: #fff; /* Texto blanco */
+  padding: 20px;
 }
 
 .contacto-formulario h2 {
-font-size: 24px;
+  font-size: 24px;
 }
 
 .contacto-formulario label {
-display: block;
-margin-bottom: 5px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 .contacto-formulario input[type="text"],
 .contacto-formulario input[type="email"],
 .contacto-formulario textarea {
-width: 100%;
-padding: 10px;
-margin-bottom: 15px;
-border: none;
-background: #444; /* Fondo más oscuro para los campos de entrada */
-color: #fff; /* Texto blanco */
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  background: #444; /* Fondo más oscuro para los campos de entrada */
+  color: #fff; /* Texto blanco */
 }
 
 .contacto-formulario button {
-background-color: #ff6600; /* Botón de color naranja */
-color: #fff; /* Texto blanco */
-padding: 10px 20px;
-border: none;
-cursor: pointer;
+  background-color: #ff6600; /* Botón de color naranja */
+  color: #fff; /* Texto blanco */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
 .contacto-formulario button:hover {
-background-color: #ff4500; /* Cambio de color al pasar el ratón */
+  background-color: #ff4500; /* Cambio de color al pasar el ratón */
 }
 
 /* Estilos para la sección de Productos Destacados */
 .productos-destacados {
-margin-top: 20px;
+  margin-top: 20px;
 }
 
 .productos-destacados h2 {
-text-align: center;
-font-size: 24px;
-margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .productos-destacados-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Estilos para la sección de Productos Destacados */
 .producto-destacado {
-position: relative;
-width: 30%; /* Ajusta el ancho según tus necesidades */
-background: #f5f5f5;
-border: 1px solid #e1e1e1;
-text-align: center;
-margin-bottom: 20px;
-padding: 10px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 30%; /* Ajusta el ancho según tus necesidades */
+  background: #f5f5f5;
+  border: 1px solid #e1e1e1;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .producto-destacado img {
-max-width: 100%;
-height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Estilo para la etiqueta de descuento */
 .etiqueta-descuento {
-position: absolute;
-top: 10%; /* Ajusta la posición vertical */
-left: 0;
-background-color: red;
-color: white;
-padding: 5px 10px;
-font-size: 1.5em;
-transform: rotate(-45deg);
-transform-origin: left top;
-z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
+  position: absolute;
+  top: 10%; /* Ajusta la posición vertical */
+  left: 0;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  transform: rotate(-45deg);
+  transform-origin: left top;
+  z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
 }
 
-
-
-
 .producto-destacado p {
-font-size: 16px;
+  font-size: 16px;
 }
 
 .producto-destacado a {
-display: inline-block;
-background: #007bff;
-color: #fff;
-padding: 5px 10px;
-text-decoration: none;
-margin-top: 10px;
-border-radius: 4px;
-transition: background 0.3s;
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
 .producto-destacado a:hover {
-background: #0056b3;
+  background: #0056b3;
+}
+
+/* Estilos para la página de resultados */
+.resultados {
+  text-align: center;
+  margin-top: 50px;
+  background-color: #111;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* Alinea los resultados en una columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.resultados h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para los resultados de la búsqueda */
+.resultados .producto {
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 60%; /* Ajusta el ancho de los resultados según tus preferencias */
+}
+
+.resultados .producto img {
+  max-width: 100%;
+  height: auto;
+}
+
+.resultados .descripcion {
+  margin-top: 10px;
+}
+
+.resultados .descripcion h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.resultados .descripcion p {
+  font-size: 16px;
 }
