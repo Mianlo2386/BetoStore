@@ -1,280 +1,289 @@
 /* public/css/styles.css */
 
 body {
-    background-color: #111;
-    color: #fff;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: black;
-    padding: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 60px; /* Ajusta el tamaño de tu logo */
-  }
-  
-  .menu ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .menu li {
-    margin-right: 20px;
-  }
-  
-  .menu a {
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  /* public/css/styles.css */
-
-/* Estilos para el hero */
-.hero {
-    background-image: url('/images/hero-background.jpg'); /* Ruta de la imagen de fondo */
-    background-size: contain;
-    background-position: center;
-    height: 1000px; /* Ajusta la altura según tus necesidades */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: self-start;
-    color: #fff;
-  }
-  
-  /* Estilos adicionales para el contenido del hero */
-  .hero h1 {
-    margin-left: 30px;
-    font-size: 36px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /* Otros estilos */
-  }
-  
-  
-  .hero p {
-    margin-left: 30px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  }
-  .presentacion-contenedor {
-    display: flex; /* Utilizar flexbox para alinear elementos en fila */
-    align-items: center; /* Alinear verticalmente los elementos al centro */
-  }
-  
-  .presentacion-imagen {
-    flex: 1; /* La imagen ocupa la mitad del espacio disponible */
-  }
-  
-  .presentacion-texto {
-    flex: 1; /* El texto ocupa la mitad del espacio disponible */
-    padding: 20px; /* Agregar un espacio entre la imagen y el texto */
-  }
-  
-  /* Estilos para los productos */
-  .logo-pequeno {
-    display: flex;
-    align-items: center; /* Alinear verticalmente el logo */
-    height: 50px; /* Ajustar la altura según sea necesario */
-  }
-  
-  .logo-pequeno img {
-    max-height: 100%; /* La imagen se ajustará al alto de su contenedor */
-  }
-  
-.productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .producto {
-    width: 30%;
-    margin-bottom: 20px;
-    text-align: center;
-    padding-top: 20px; /* Agregar un padding superior */
-  }
-  
-  
-  .producto img {
-    max-width: 100%;
-    max-height: 800px; /* Establece una altura máxima para igualar el tamaño */
-    width: auto;
-    height: auto;
-    object-fit: contain; /* Ajusta la imagen sin distorsionarla */
-  }
-  
-  
-  .descripcion {
-    margin-top: 10px;
-  }
-  
-  /* Limpiar la fila después de tres elementos */
-  .clearfix {
-    clear: both;
-  }
-  
-  .descripcion {
-    margin-bottom: 20px;
-  }
-  
-  .descripcion h2 {
-    font-size: 24px;
-  }
-  .buscador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px; /* Ajusta la altura según sea necesario */
-  }
-  .buscador input[type="text"] {
-    font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
-    width: 300px; /* Ajusta el ancho según sea necesario */
-    padding: 10px; /* Añade un relleno para hacerlo más grande */
-  }
-  
-  .buscador button {
-    font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
-    padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
-  }
-   /* Estilos para la sección de contacto */
-.contacto-datos {
-  background-color: #222; /* Fondo oscuro */
-  color: #fff; /* Texto blanco */
-  padding: 20px;
+  background-color: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
 }
 
-.contacto-datos h2 {
-  font-size: 24px;
+header {
+  background-color: black;
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Estilos para el encabezado fijo */
+.header {
+  position: fixed; /* Establece la posición como fija */
+  top: 0; /* Fija el encabezado en la parte superior de la ventana del navegador */
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho de la ventana */
+  background-color: black; /* Establece el color de fondo que desees */
+  z-index: 100; /* Asegura que el encabezado esté en la parte superior de otros elementos */
 }
 
-.contacto-datos ul {
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 60px; /* Ajusta el tamaño de tu logo */
+}
+
+.menu ul {
   list-style: none;
+  display: flex;
+  margin: 0;
   padding: 0;
 }
 
+.menu li {
+  margin-right: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* public/css/styles.css */
+
+/* Estilos para el hero */
+.hero {
+  background-image: url('/images/hero-background.jpg'); /* Ruta de la imagen de fondo */
+  background-size: contain;
+  background-position: center;
+  height: 1000px; /* Ajusta la altura según tus necesidades */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: self-start;
+  color: #fff;
+  margin-top: 60px;
+}
+
+/* Estilos adicionales para el contenido del hero */
+.hero h1 {
+  margin-left: 30px;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* Otros estilos */
+}
+
+
+.hero p {
+  margin-left: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.presentacion-contenedor {
+  display: flex; /* Utilizar flexbox para alinear elementos en fila */
+  align-items: center; /* Alinear verticalmente los elementos al centro */
+}
+
+.presentacion-imagen {
+  flex: 1; /* La imagen ocupa la mitad del espacio disponible */
+}
+
+.presentacion-texto {
+  flex: 1; /* El texto ocupa la mitad del espacio disponible */
+  padding: 20px; /* Agregar un espacio entre la imagen y el texto */
+}
+
+/* Estilos para los productos */
+.logo-pequeno {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el logo */
+  height: 50px; /* Ajustar la altura según sea necesario */
+}
+
+.logo-pequeno img {
+  max-height: 100%; /* La imagen se ajustará al alto de su contenedor */
+}
+
+.productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.producto {
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 20px; /* Agregar un padding superior */
+}
+
+
+.producto img {
+  max-width: 100%;
+  max-height: 800px; /* Establece una altura máxima para igualar el tamaño */
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+}
+
+
+.descripcion {
+  margin-top: 10px;
+}
+
+/* Limpiar la fila después de tres elementos */
+.clearfix {
+  clear: both;
+}
+
+.descripcion {
+  margin-bottom: 20px;
+}
+
+.descripcion h2 {
+  font-size: 24px;
+}
+.buscador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Ajusta la altura según sea necesario */
+  margin-top: 60px;
+}
+.buscador input[type="text"] {
+  font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
+  width: 300px; /* Ajusta el ancho según sea necesario */
+  padding: 10px; /* Añade un relleno para hacerlo más grande */
+}
+
+.buscador button {
+  font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
+  padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
+}
+ /* Estilos para la sección de contacto */
+.contacto-datos {
+background-color: #222; /* Fondo oscuro */
+color: #fff; /* Texto blanco */
+padding: 20px;
+}
+
+.contacto-datos h2 {
+font-size: 24px;
+}
+
+.contacto-datos ul {
+list-style: none;
+padding: 0;
+}
+
 .contacto-datos li {
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 .contacto-formulario {
-  background-color: #333; /* Fondo oscuro ligeramente más claro */
-  color: #fff; /* Texto blanco */
-  padding: 20px;
+background-color: #333; /* Fondo oscuro ligeramente más claro */
+color: #fff; /* Texto blanco */
+padding: 20px;
 }
 
 .contacto-formulario h2 {
-  font-size: 24px;
+font-size: 24px;
 }
 
 .contacto-formulario label {
-  display: block;
-  margin-bottom: 5px;
+display: block;
+margin-bottom: 5px;
 }
 
 .contacto-formulario input[type="text"],
 .contacto-formulario input[type="email"],
 .contacto-formulario textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: none;
-  background: #444; /* Fondo más oscuro para los campos de entrada */
-  color: #fff; /* Texto blanco */
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: none;
+background: #444; /* Fondo más oscuro para los campos de entrada */
+color: #fff; /* Texto blanco */
 }
 
 .contacto-formulario button {
-  background-color: #ff6600; /* Botón de color naranja */
-  color: #fff; /* Texto blanco */
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+background-color: #ff6600; /* Botón de color naranja */
+color: #fff; /* Texto blanco */
+padding: 10px 20px;
+border: none;
+cursor: pointer;
 }
 
 .contacto-formulario button:hover {
-  background-color: #ff4500; /* Cambio de color al pasar el ratón */
+background-color: #ff4500; /* Cambio de color al pasar el ratón */
 }
- 
- /* Estilos para la sección de Productos Destacados */
+
+/* Estilos para la sección de Productos Destacados */
 .productos-destacados {
-  margin-top: 20px;
+margin-top: 20px;
 }
 
 .productos-destacados h2 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+text-align: center;
+font-size: 24px;
+margin-bottom: 20px;
 }
 
 .productos-destacados-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
 }
 
 /* Estilos para la sección de Productos Destacados */
 .producto-destacado {
-  position: relative;
-  width: 30%; /* Ajusta el ancho según tus necesidades */
-  background: #f5f5f5;
-  border: 1px solid #e1e1e1;
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+position: relative;
+width: 30%; /* Ajusta el ancho según tus necesidades */
+background: #f5f5f5;
+border: 1px solid #e1e1e1;
+text-align: center;
+margin-bottom: 20px;
+padding: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .producto-destacado img {
-  max-width: 100%;
-  height: auto;
+max-width: 100%;
+height: auto;
 }
 
 /* Estilo para la etiqueta de descuento */
 .etiqueta-descuento {
-  position: absolute;
-  top: 10%; /* Ajusta la posición vertical */
-  left: 0;
-  background-color: red;
-  color: white;
-  padding: 5px 10px;
-  font-size: 1.5em;
-  transform: rotate(-45deg);
-  transform-origin: left top;
-  z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
+position: absolute;
+top: 10%; /* Ajusta la posición vertical */
+left: 0;
+background-color: red;
+color: white;
+padding: 5px 10px;
+font-size: 1.5em;
+transform: rotate(-45deg);
+transform-origin: left top;
+z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
 }
 
 
 
 
 .producto-destacado p {
-  font-size: 16px;
+font-size: 16px;
 }
 
 .producto-destacado a {
-  display: inline-block;
-  background: #007bff;
-  color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-top: 10px;
-  border-radius: 4px;
-  transition: background 0.3s;
+display: inline-block;
+background: #007bff;
+color: #fff;
+padding: 5px 10px;
+text-decoration: none;
+margin-top: 10px;
+border-radius: 4px;
+transition: background 0.3s;
 }
 
 .producto-destacado a:hover {
-  background: #0056b3;
+background: #0056b3;
 }
- 
-  
