@@ -78,7 +78,12 @@ nav {
   margin-left: 30px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
+
+
+
 .presentacion-contenedor {
+  background-color: black;
   display: flex; /* Utilizar flexbox para alinear elementos en fila */
   align-items: center; /* Alinear verticalmente los elementos al centro */
 }
@@ -88,6 +93,7 @@ nav {
 }
 
 .presentacion-texto {
+  
   flex: 1; /* El texto ocupa la mitad del espacio disponible */
   padding: 20px; /* Agregar un espacio entre la imagen y el texto */
 }
@@ -230,34 +236,34 @@ nav {
   background-color: #ff4500; /* Cambio de color al pasar el ratón */
 }
 
-/* Estilos para la sección de Productos Destacados */
+/* Estilos para la sección de productos destacados */
 .productos-destacados {
   margin-top: 20px;
+  text-align: center; /* Centra los elementos en el contenedor */
 }
 
 .productos-destacados h2 {
   text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.productos-destacados-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* Estilos para la sección de Productos Destacados */
+/* Estilos para la sección de productos destacados */
 .producto-destacado {
   position: relative;
-  width: 30%; /* Ajusta el ancho según tus necesidades */
-  background: #f5f5f5;
+  width: calc(30% - 20px); /* Para asegurarte de que haya espacio entre los elementos */
+  margin-right: 20px; /* Espacio entre los productos */
+  box-sizing: border-box;
+  background: #1f1e1e;
   border: 1px solid #e1e1e1;
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: inline-block; /* Muestra los productos en línea en lugar de uno debajo del otro */
+  vertical-align: top; /* Alinea los productos en la parte superior */
+  /* Agregar estilos adicionales según tu preferencia */
 }
 
 .producto-destacado img {
@@ -297,6 +303,7 @@ nav {
 .producto-destacado a:hover {
   background: #0056b3;
 }
+
 
 /* Estilos para la página de resultados */
 .resultados {
