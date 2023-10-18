@@ -15,13 +15,15 @@
     </form>
   </div>
   
+  
   <section class="productos">
     <% for (let i = 0; i < productos.length; i++) { %>
-      <div class="producto producto-pagina-productos"> <!-- Agregamos la clase aquí -->
+      <div class="producto producto-pagina-productos">
         <img src="<%= productos[i].imagen %>" alt="Producto <%= i + 1 %>">
         <div class="descripcion">
           <h2>Producto <%= i + 1 %></h2>
           <p><%= productos[i].descripcion %></p>
+          <p>Precio: $<%= productos[i].precio %></p> <!-- Agregamos esta línea para mostrar el precio -->
         </div>
       </div>
       <% if ((i + 1) % 3 === 0) { %>
@@ -29,4 +31,7 @@
       <% } %>
     <% } %>
   </section>
+  <%- include('footer') %>
+
+  
   

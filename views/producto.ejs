@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  <title>Detalles del Producto</title>
+</head>
+<body>
+  <%- include(header) %>
+  <main>
+    <div class="producto-detalles">
+      <h1><%= producto.nombre %></h1>
+      <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>">
+      <p><%= producto.descripcion %></p>
+      <p>Precio: <%= producto.precio %></p>
+      <!-- Agrega más detalles del producto según tus necesidades -->
+    </div>
+  </main>
+  <%- include('footer') %>
+
+  
+</body>
+</html>
