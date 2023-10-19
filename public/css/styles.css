@@ -8,7 +8,7 @@ body {
 
 header {
   background-color: black;
-  padding: 5px 0;
+  padding: 5px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +40,7 @@ nav {
 }
 
 .menu li {
-  margin-right: 20px;
+  margin-right: 100px;
 }
 
 .menu a {
@@ -95,7 +95,7 @@ nav {
 .presentacion-texto {
   
   flex: 1; /* El texto ocupa la mitad del espacio disponible */
-  padding: 20px; /* Agregar un espacio entre la imagen y el texto */
+  padding: 40px; /* Agregar un espacio entre la imagen y el texto */
 }
 
 /* Estilos para los productos */
@@ -118,6 +118,8 @@ nav {
 /* Estilos para los productos en la página de productos (tres columnas centradas) */
 .producto.producto-pagina-productos {
   background-color: #222;
+  border: #fff;
+  border-radius: 5px;
   color: #fff;
   padding: 10px;
   margin-bottom: 20px;
@@ -163,26 +165,46 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100px; /* Ajusta la altura según sea necesario */
-  margin-top: 60px;
+  height: 80px; /* Ajusta la altura según sea necesario */
+  margin-top: 80px;
 }
 
 .buscador input[type="text"] {
-  font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
-  width: 300px; /* Ajusta el ancho según sea necesario */
-  padding: 10px; /* Añade un relleno para hacerlo más grande */
+  font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
+  width: 250px; /* Ajusta el ancho según sea necesario */
+  padding: 8px; /* Añade un relleno para hacerlo más grande */
+  border: 1px solid #ccc; /* Agrega un borde suave */
+  border-radius: 5px; /* Redondea los bordes */
+  outline: none; /* Elimina el borde resaltado en enfoque */
+  transition: border 0.3s; /* Agrega una transición suave */
+}
+
+.buscador input[type="text"]:focus {
+  border: 1px solid #007bff; /* Cambia el borde en enfoque */
 }
 
 .buscador button {
   font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
-  padding: 10px 20px; /* Añade un relleno para hacerlo más grande */
+  padding: 8px 20px; /* Añade un relleno para hacerlo más grande */
+  border: none; /* Elimina el borde */
+  background: #333; /* Color de fondo del botón */
+  color: #fff; /* Color del texto */
+  border-radius: 5px; /* Redondea los bordes */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background 0.3s; /* Agrega una transición suave al color de fondo */
 }
+
+.buscador button:hover {
+  background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+}
+
 
 /* Estilos para la sección de contacto */
 .contacto-datos {
   background-color: #222; /* Fondo oscuro */
   color: #fff; /* Texto blanco */
   padding: 20px;
+  margin-top: 100px;
 }
 
 .contacto-datos h2 {
@@ -254,13 +276,14 @@ nav {
   position: relative;
   width: calc(30% - 20px); /* Para asegurarte de que haya espacio entre los elementos */
   margin-right: 20px; /* Espacio entre los productos */
+  margin-left: 20px; /* Espacio a la izquierda para centrar */
   box-sizing: border-box;
-  background: #1f1e1e;
-  border: 1px solid #e1e1e1;
+  background: #333; /* Fondo oscuro */
+  border: 1px solid #222; /* Borde más oscuro */
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra más oscura */
   display: inline-block; /* Muestra los productos en línea en lugar de uno debajo del otro */
   vertical-align: top; /* Alinea los productos en la parte superior */
   /* Agregar estilos adicionales según tu preferencia */
@@ -271,18 +294,27 @@ nav {
   height: auto;
 }
 
+/* Estilo para la transición al pasar el mouse sobre los productos destacados */
+.producto-destacado:hover {
+  transform: scale(1.05); /* Leve acercamiento al pasar el mouse */
+  border-radius: 10px; /* Redondea los bordes */
+  transition: transform 0.3s, border-radius 0.3s; /* Agrega una transición suave */
+}
+
 /* Estilo para la etiqueta de descuento */
 .etiqueta-descuento {
   position: absolute;
-  top: 10%; /* Ajusta la posición vertical */
+  top: 15%; /* Ajusta la posición vertical */
   left: 0;
-  background-color: red;
+  background-color: #333; /* Fondo oscuro */
   color: white;
   padding: 5px 10px;
   font-size: 1.5em;
   transform: rotate(-45deg);
   transform-origin: left top;
   z-index: 2; /* Asegura que la etiqueta esté sobre la imagen */
+  width: 35%;
+  height: 10%;
 }
 
 .producto-destacado p {
@@ -291,7 +323,7 @@ nav {
 
 .producto-destacado a {
   display: inline-block;
-  background: #007bff;
+  background: #555; /* Color de fondo más oscuro */
   color: #fff;
   padding: 5px 10px;
   text-decoration: none;
@@ -301,8 +333,10 @@ nav {
 }
 
 .producto-destacado a:hover {
-  background: #0056b3;
+  background: #444; /* Color de fondo más oscuro al pasar el mouse */
 }
+
+
 
 
 /* Estilos para la página de resultados */
