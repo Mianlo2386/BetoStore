@@ -1,9 +1,12 @@
+
+const uri = process.env.MONGODB_URI;
 const express = require('express');
 const app = express();
 const port = 3000;
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const productos = require('./productos.json'); 
 
 dotenv.config();
 
@@ -11,12 +14,17 @@ dotenv.config();
 const correo = process.env.CORREOGMAIL;
 const contraseña = process.env.PASSGMAIL;
 
-// Require los archivos de productos y productosDestacados desde la carpeta "server"
-const productos = require('./server/productos');
+
+
 const productosDestacados = require('./server/productosDestacados');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
+app.get('/productos', (req, res) => {
+  res.render('productos', { productos, header: 'header' });
+});
+
 
 app.get('/', (req, res) => {
   res.render('index', { productos, productosDestacados, header: 'header' }); // Pasa ambas variables a la vista
@@ -95,3 +103,15 @@ app.get('/producto/:id', (req, res) => {
     res.render('producto', { producto, header: 'header' });
   }
 });
+const { connectToDatabase } = require('./server/database.js');
+
+async function main() {
+  try {
+    const db = await connectToDatabase();
+    // Realiza consultas y operaciones en la base de datos
+  } catch (error) {
+    console.error('Error al conectar a la base de datos', error);
+  }
+}
+
+main();

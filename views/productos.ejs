@@ -7,7 +7,8 @@
   <title>BetoStore</title>
 </head>
 <body>
-  <%- include(header) %>   
+  <% include(header) %>
+  
   <div class="buscador">
     <form action="/buscar" method="GET">
       <input type="text" name="q" placeholder="Buscar productos">
@@ -15,23 +16,18 @@
     </form>
   </div>
   
-  
   <section class="productos">
-    <% for (let i = 0; i < productos.length; i++) { %>
+    <% productos.forEach(producto => { %>
       <div class="producto producto-pagina-productos">
-        <img src="<%= productos[i].imagen %>" alt="Producto <%= i + 1 %>">
+        <img src="<%= producto.imagen %>" alt="<%= producto.descripcion %>">
         <div class="descripcion">
-          <h2>Producto <%= i + 1 %></h2>
-          <p><%= productos[i].descripcion %></p>
-          <p>Precio: $<%= productos[i].precio %></p> <!-- Agregamos esta línea para mostrar el precio -->
+          <h2><%= producto.descripcion %></h2>
+          <p>Precio: $<%= producto.precio %></p>
         </div>
       </div>
-      <% if ((i + 1) % 3 === 0) { %>
-        <div class="clearfix"></div> <!-- Limpiar la fila después de tres elementos -->
-      <% } %>
-    <% } %>
+    <% }); %>
   </section>
-  <%- include('footer') %>
-
   
-  
+  <% include('footer') %>
+</body>
+</html>
