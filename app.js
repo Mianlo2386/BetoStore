@@ -6,7 +6,8 @@ const port = 3000;
 const dotenv = require('dotenv');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const productos = require('./productos.json'); 
+const productos = require('./productos.json');
+const path = require('path'); // Importar el módulo 'path' 
 
 dotenv.config();
 
@@ -14,12 +15,16 @@ dotenv.config();
 const correo = process.env.CORREOGMAIL;
 const contraseña = process.env.PASSGMAIL;
 
+app.use('/js', express.static(path.join(__dirname, 'server/js')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 
 const productosDestacados = require('./server/productosDestacados');
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+
 
 app.get('/productos', (req, res) => {
   res.render('productos', { productos, header: 'header' });
