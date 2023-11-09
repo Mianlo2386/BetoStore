@@ -1,0 +1,13 @@
+<!-- Sección de productos destacados -->
+<section class="productos-destacados">
+    <h2>Productos Destacados</h2>
+    <% for (let i = 0; i < productosDestacados.length; i++) { %>
+      <div class="producto-destacado producto-destacado-custom">
+        <div class="etiqueta-descuento">10% OFF</div>
+        <img src="<%= productosDestacados[i].imagen %>" alt="Producto <%= i + 1 %>">
+        <h3><%= productosDestacados[i].nombre %></h3>
+        <p><%= productosDestacados[i].descripcion %></p>
+        <a href="/producto/<%= productosDestacados[i].id %>">Ver Detalles</a>
+      </div>
+     <% } %>
+  </section>

@@ -24,7 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 const productosDestacados = require('./server/productosDestacados');
 
 app.set('view engine', 'ejs');
+/* 
+const productosRoutes = require('./server/routes/productosRoutes');
 
+app.use('/productos', productosRoutes); */
 
 app.get('/productos', (req, res) => {
   res.render('productos', { productos, header: 'header' });
@@ -35,11 +38,9 @@ app.get('/', (req, res) => {
   res.render('index', { productos, productosDestacados, header: 'header' }); // Pasa ambas variables a la vista
 });
 
-// Resto de tus rutas...
 
-app.get('/productos', (req, res) => {
-  res.render('productos', { productos, header: 'header' });
-});
+
+
 
 app.get('/buscar', (req, res) => {
   const query = req.query.q;
