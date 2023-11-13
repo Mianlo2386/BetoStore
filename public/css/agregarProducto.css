@@ -1,0 +1,55 @@
+/* agregarProducto.css */
+
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .formulario-agregar {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #333; /* Fondo formulario */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  h2 {
+    color: #61dafb; /* Color react */
+  }
+  
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #444; /* Color de fondo campos de entrada */
+    color: #fff; /* Color de texto campos de entrada */
+    border: 1px solid #61dafb; /* Borde azul react */
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #61dafb;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #318ce7; /* Color azul más oscuro al pasar el ratón */
+  }
+  

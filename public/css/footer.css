@@ -1,0 +1,16 @@
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+footer {
+    background-color: #111; /* Color de fondo del footer */
+    color: #fff; /* Color de texto del footer */
+    padding: 20px; /* Espaciado interior del footer */
+    text-align: center; /* Alineación del texto en el centro */
+  }
+  
+  .footer-contenido {
+    max-width: 1200px; /* Ancho máximo del contenido del footer */
+    margin: 0 auto; /* Centra el contenido del footer horizontalmente */
+  }

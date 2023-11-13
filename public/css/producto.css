@@ -1,0 +1,41 @@
+/* producto.css */
+
+body {
+  font-family: 'Arial', sans-serif;
+  /* background-color: #111; */
+  background-color: aqua;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.producto-detalles {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+h1 {
+  color: #ffcc00;
+}
+
+img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+/* Agrega más estilos según sea necesario */

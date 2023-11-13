@@ -58,6 +58,18 @@
       "imagen": "/images/producto10.jpeg",
       "descripcion": "Descripción del producto 10: Aquí va la descripción del producto.",
       "precio": 1050
-    }
-  ]
-  
+    },
+    {
+      "id": 11,
+      "imagen": "/images/producto11.jpeg",
+      "descripcion": "Descripción del producto 11: Aquí va la descripción del producto.",
+      "precio": 1200
+    },
+    {
+      "id": 12,
+      "imagen": "/images/producto12.jpeg",
+      "descripcion": "Descripción del producto 12: Aquí va la descripción del producto.",
+      "precio": 1500
+    }  
+ 
+]

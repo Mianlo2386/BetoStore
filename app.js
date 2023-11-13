@@ -4,19 +4,21 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const dotenv = require('dotenv');
-const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const productos = require('./productos.json');
 const path = require('path'); // Importar el módulo 'path' 
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' }); // El directorio 'uploads/' será creado automáticamente
 
 dotenv.config();
 
 // Accede a las variables de entorno cargadas desde .env
-const correo = process.env.CORREOGMAIL;
-const contraseña = process.env.PASSGMAIL;
+
 
 app.use('/js', express.static(path.join(__dirname, 'server/js')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 
@@ -24,20 +26,59 @@ app.use(express.static(path.join(__dirname, 'public')));
 const productosDestacados = require('./server/productosDestacados');
 
 app.set('view engine', 'ejs');
-/* 
-const productosRoutes = require('./server/routes/productosRoutes');
 
-app.use('/productos', productosRoutes); */
+
+//Probando /productos
+/* app.get('/productos', (req, res) => {
+  res.json(productos);
+});  */
+
 
 app.get('/productos', (req, res) => {
   res.render('productos', { productos, header: 'header' });
-});
+});  
 
 
 app.get('/', (req, res) => {
   res.render('index', { productos, productosDestacados, header: 'header' }); // Pasa ambas variables a la vista
 });
 
+app.post('/admin/agregar-producto', upload.single('imagen'), (req, res) => {
+  console.log('Datos del formulario:', req.body);
+  console.log('Archivo de imagen:', req.file);
+
+  // Verifica que el cuerpo de la solicitud existe y es un objeto
+  if (req.body && typeof req.body === 'object') {
+    const newProduct = req.body;
+
+    // Verifica que el objeto tenga la propiedad 'id'
+    if ('id' in newProduct) {
+      // Asigna un nuevo ID al producto
+      newProduct.id = productos.length + 1;
+
+      // Si se ha subido una imagen, adjunta la ruta de la imagen al nuevo producto
+      if (req.file) {
+        newProduct.imagen = `/uploads/${req.file.filename}`;
+      }
+
+      // Agrega el nuevo producto a la lista de productos
+      productos.push(newProduct);
+
+      // Devuelve el nuevo producto como respuesta
+      return res.json(newProduct);
+    }
+  }
+
+  // Si hay algún problema con los datos de la solicitud, devuelve un error
+  res.status(400).json({ error: 'Datos de producto no válidos...' });
+});
+
+
+
+// app.js
+app.get('/admin/agregar-producto', (req, res) => {
+  res.render('agregarProducto', { header: 'header' });
+});
 
 
 
@@ -52,6 +93,18 @@ app.get('/buscar', (req, res) => {
   res.render('resultados', { resultados, header: 'header' });
 });
 
+//PRUEBA DE BUSQUEDA
+
+/* app.get('/buscar', (req, res) => {
+  const query = req.query.q;
+  // Realiza la búsqueda por ID o descripción
+  const resultados = productos.filter(producto =>
+    producto.id === parseInt(query) || producto.descripcion.includes(query)
+  );
+
+  res.json(resultados);
+});
+ */
 
 app.get('/contacto', (req, res) => {
   res.render('contacto', { header: 'header' });

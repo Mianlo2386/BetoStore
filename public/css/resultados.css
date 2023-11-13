@@ -1,0 +1,31 @@
+/* Estilos para los productos en la página de resultados */
+/* resultados.css */
+
+.producto-pagina-resultados {
+    text-align: center; /* Centra el contenido del contenedor */
+  }
+  
+  .producto-pagina-resultados img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Permite que la altura se ajuste automáticamente según el ancho */
+    display: inline-block; /* Asegura que la imagen se comporte como un bloque en línea */
+    margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
+  }
+  
+  
+  .producto img {
+    max-width: 100%;
+    max-height: 80vh; /* Ajusta la altura según sea necesario */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+    border-radius: 5px; /* Agrega bordes redondeados */
+  }
+  
+  .descripcion {
+    margin-top: 10px;
+  }
+  
+  .descripcion h2 {
+    font-size: 24px;
+  }

@@ -1,0 +1,62 @@
+/* Estilos para la sección de contacto */
+.contacto-datos {
+    background-color: #222; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    margin: 100px auto 0 auto;
+    max-width: 600px;
+  }
+  
+  .contacto-datos h2 {
+    font-size: 24px;
+  }
+  
+  .contacto-datos ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contacto-datos li {
+    margin-bottom: 10px;
+  }
+  
+  .contacto-formulario {
+    background-color: #333; /* Fondo oscuro ligeramente más claro */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    max-width: 600px;
+    margin: 0px auto;
+  }
+  
+  .contacto-formulario h2 {
+    font-size: 24px;
+  }
+  
+  .contacto-formulario label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .contacto-formulario input[type="text"],
+  .contacto-formulario input[type="email"],
+  .contacto-formulario textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    background: #444; /* Fondo más oscuro para los campos de entrada */
+    color: #fff; /* Texto blanco */
+  }
+  
+  .contacto-formulario button {
+    background-color: #ff6600; /* Botón de color naranja */
+    color: #fff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contacto-formulario button:hover {
+    background-color: #ff4500; /* Cambio de color al pasar el ratón */
+  }
+  

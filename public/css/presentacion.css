@@ -1,0 +1,16 @@
+.presentacion-contenedor {
+    background-color: black;
+    display: flex; /* Utilizar flexbox para alinear elementos en fila */
+    align-items: center; /* Alinear verticalmente los elementos al centro */
+  }
+  
+  .presentacion-imagen {
+    flex: 1; /* La imagen ocupa la mitad del espacio disponible */
+  }
+  
+  .presentacion-texto {
+    
+    flex: 1; /* El texto ocupa la mitad del espacio disponible */
+    padding: 40px; /* Agregar un espacio entre la imagen y el texto */
+  }
+  

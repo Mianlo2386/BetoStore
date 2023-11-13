@@ -1,0 +1,143 @@
+/* Estilos para los productos */
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+header {
+    background-color: black;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* Estilos para el encabezado fijo */
+  .header {
+    position: fixed; /* Establece la posición como fija */
+    top: 0; /* Fija el encabezado en la parte superior de la ventana del navegador */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la ventana */
+    background-color: black; /* Establece el color de fondo que desees */
+    z-index: 100; /* Asegura que el encabezado esté en la parte superior de otros elementos */
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 60px; /* Ajusta el tamaño de tu logo */
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu li {
+    margin-right: 100px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+  }
+.logo-pequeno {
+    display: flex;
+    align-items: center; /* Alinear verticalmente el logo */
+    height: 50px; /* Ajustar la altura según sea necesario */
+  }
+  
+  .logo-pequeno img {
+    max-height: 100%; /* La imagen se ajustará al alto de su contenedor */
+  }
+
+.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Estilos para los productos en la página de productos (tres columnas centradas) */
+  .producto.producto-pagina-productos {
+    background-color: #222;
+    border: #fff;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: calc(33.33% - 20px); /* Divide el ancho en tres columnas con margen */
+    margin-right: 20px; /* Espacio entre las columnas */
+    display: inline-block; /* Muestra los productos en línea en lugar de uno debajo del otro */
+    vertical-align: top; /* Alinea los productos en la parte superior */
+    }
+    .productos .producto {
+        width: 30%;
+      }
+      
+      
+      .producto img {
+        max-width: 100%;
+        max-height: 800px; /* Establece una altura máxima para igualar el tamaño */
+        width: auto;
+        height: auto;
+        object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+      }
+      
+      .descripcion {
+        margin-top: 10px;
+      }
+      
+      /* Limpiar la fila después de tres elementos */
+      .clearfix {
+        clear: both;
+      }
+      
+      .descripcion {
+        margin-bottom: 20px;
+      }
+      
+      .descripcion h2 {
+        font-size: 24px;
+      }
+      
+      .buscador {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px; /* Ajusta la altura según sea necesario */
+        margin-top: 80px;
+      }
+      
+      .buscador input[type="text"] {
+        font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
+        width: 250px; /* Ajusta el ancho según sea necesario */
+        padding: 8px; /* Añade un relleno para hacerlo más grande */
+        border: 1px solid #ccc; /* Agrega un borde suave */
+        border-radius: 5px; /* Redondea los bordes */
+        outline: none; /* Elimina el borde resaltado en enfoque */
+        transition: border 0.3s; /* Agrega una transición suave */
+      }
+      
+      .buscador input[type="text"]:focus {
+        border: 1px solid #007bff; /* Cambia el borde en enfoque */
+      }
+      
+      .buscador button {
+        font-size: 18px; /* Ajusta el tamaño de fuente según sea necesario */
+        padding: 8px 20px; /* Añade un relleno para hacerlo más grande */
+        border: none; /* Elimina el borde */
+        background: #333; /* Color de fondo del botón */
+        color: #fff; /* Color del texto */
+        border-radius: 5px; /* Redondea los bordes */
+        cursor: pointer; /* Cambia el cursor al pasar el mouse */
+        transition: background 0.3s; /* Agrega una transición suave al color de fondo */
+      }
+      
+      .buscador button:hover {
+        background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse */
+      }
+      

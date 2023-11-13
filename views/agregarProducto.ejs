@@ -1,0 +1,40 @@
+<!-- agregarProducto.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/agregarProducto.css">
+
+  <title>Agregar Producto - BetoStore</title>
+</head>
+<body>
+  <% include('header') %>
+  
+  <div class="formulario-agregar">
+    <h2>Agregar nuevo producto</h2>
+
+    <form action="/admin/agregar-producto" method="POST" enctype="multipart/form-data">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="precio">Precio:</label>
+      <input type="text" id="precio" name="precio" required>
+
+      <label for="descripcion">Descripción:</label>
+      <textarea id="descripcion" name="descripcion" required></textarea>
+
+      <label for="imagen">Imagen:</label>
+      <input type="file" id="imagen" name="imagen" accept="image/*">
+
+      <!-- Otros campos según sea necesario -->
+
+      <button type="submit">Agregar Producto</button>
+    </form>
+  </div>
+  
+  <% include('footer') %>
+</body>
+</html>
+

@@ -1,9 +1,12 @@
+<!-- Resultados.ejs -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/resultados.css">
+  <!-- Agrega tu hoja de estilos específica si es necesario -->
   <title>BetoStore - Resultados de tu Búsqueda</title>
 </head>
 <body> 
@@ -12,16 +15,17 @@
   <section class="resultados">
     <h1>Resultados de la búsqueda</h1>
     <% for (let i = 0; i < resultados.length; i++) { %>
-      <div class="producto producto-pagina-resultados"> <!-- Agregamos la clase aquí -->
+      <div class="producto producto-pagina-resultados">
         <img src="<%= resultados[i].imagen %>" alt="Producto <%= resultados[i].id %>">
         <div class="descripcion">
           <h2>Producto <%= resultados[i].id %></h2>
           <p><%= resultados[i].descripcion %></p>
+          <!-- Agrega el siguiente bloque para mostrar el precio -->
+          <p>Precio: <%= resultados[i].precio %></p>
         </div>
       </div>
     <% } %>
   </section>
   <%- include('footer') %>
-
-  
-  
+</body>
+</html>
