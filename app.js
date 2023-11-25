@@ -1,4 +1,4 @@
-
+ /* app.js */
 const uri = process.env.MONGODB_URI;
 const express = require('express');
 const app = express();
@@ -8,7 +8,11 @@ const bodyParser = require('body-parser');
 const productos = require('./productos.json');
 const path = require('path'); // Importar el módulo 'path' 
 const multer = require('multer');
-const upload = multer({ dest: 'uploads/' }); // El directorio 'uploads/' será creado automáticamente
+const upload = multer({ dest: 'public/images' }); // El directorio 'uploads/' será creado automáticamente
+
+const routes = require('./routes'); // Importar el archivo index.js de la carpeta routes
+
+const actualizarProductoRoutes = require('./routes/actualizarProducto');
 
 dotenv.config();
 
@@ -19,8 +23,9 @@ app.use('/js', express.static(path.join(__dirname, 'server/js')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/', routes); // Usar las rutas definidas en el archivo index.js de la carpeta routes
 
-
+app.set('views', path.join(__dirname, 'views'));
 
 
 const productosDestacados = require('./server/productosDestacados');
@@ -43,35 +48,6 @@ app.get('/', (req, res) => {
   res.render('index', { productos, productosDestacados, header: 'header' }); // Pasa ambas variables a la vista
 });
 
-app.post('/admin/agregar-producto', upload.single('imagen'), (req, res) => {
-  console.log('Datos del formulario:', req.body);
-  console.log('Archivo de imagen:', req.file);
-
-  // Verifica que el cuerpo de la solicitud existe y es un objeto
-  if (req.body && typeof req.body === 'object') {
-    const newProduct = req.body;
-
-    // Verifica que el objeto tenga la propiedad 'id'
-    if ('id' in newProduct) {
-      // Asigna un nuevo ID al producto
-      newProduct.id = productos.length + 1;
-
-      // Si se ha subido una imagen, adjunta la ruta de la imagen al nuevo producto
-      if (req.file) {
-        newProduct.imagen = `/uploads/${req.file.filename}`;
-      }
-
-      // Agrega el nuevo producto a la lista de productos
-      productos.push(newProduct);
-
-      // Devuelve el nuevo producto como respuesta
-      return res.json(newProduct);
-    }
-  }
-
-  // Si hay algún problema con los datos de la solicitud, devuelve un error
-  res.status(400).json({ error: 'Datos de producto no válidos...' });
-});
 
 
 
@@ -82,6 +58,11 @@ app.get('/admin/agregar-producto', (req, res) => {
 
 
 
+// Configura la ruta de manejo de la carga de archivos
+app.post('/subir-imagen', upload.single('miImagen'), (req, res) => {
+  // Aquí puedes manejar la lógica después de cargar la imagen
+  res.send('Imagen subida con éxito');
+});
 
 app.get('/buscar', (req, res) => {
   const query = req.query.q;
@@ -93,6 +74,7 @@ app.get('/buscar', (req, res) => {
   res.render('resultados', { resultados, header: 'header' });
 });
 
+app.use('/admin/actualizar-producto', actualizarProductoRoutes);
 //PRUEBA DE BUSQUEDA
 
 /* app.get('/buscar', (req, res) => {

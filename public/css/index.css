@@ -1,0 +1,17 @@
+/* public/css/styles.css */
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+/* Estilos para los productos */
+.logo-pequeno {
+  display: flex;
+  align-items: center; /* Alinear verticalmente el logo */
+  height: 50px; /* Ajustar la altura según sea necesario */
+}
+
+.logo-pequeno img {
+  max-height: 100%; /* La imagen se ajustará al alto de su contenedor */
+}
