@@ -7,6 +7,13 @@ body {
   text-align: center;
 }
 
+img {
+  max-width: 30%; /* Esto asegura que la imagen no sea más ancha que su contenedor */
+  height: auto;    /* Esto permite que la altura se ajuste automáticamente para mantener la proporción */
+  display: block;  /* Esto elimina cualquier espacio adicional debajo de la imagen */
+  margin: 0 auto;   /* Esto centra la imagen en su contenedor */
+}
+
 .formulario-actualizar,
 .formulario-busqueda {
   max-width: 600px;
@@ -53,3 +60,35 @@ button:hover {
   background-color: #318ce7; /* Color azul más oscuro al pasar el ratón */
 }
 
+.producto-actualizado {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #333; /* Fondo producto actualizado */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.producto-actualizado ul {
+  list-style: none;
+  padding: 0;
+}
+
+.producto-actualizado li {
+  margin-bottom: 10px;
+}
+
+/* Estilos para el enlace de volver a la página principal */
+.volver-enlace {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #61dafb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.volver-enlace:hover {
+  background-color: #318ce7; /* Color azul más oscuro al pasar el ratón */
+}

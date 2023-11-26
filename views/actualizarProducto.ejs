@@ -20,22 +20,37 @@
   </form>
 
   <% if (producto) { %>
-    <!-- Producto encontrado, mostrar detalles y formulario de actualización -->
-    <img src="<%= producto.imagen %>" alt="Imagen del producto">
-    <div class="formulario-actualizar">
-      <h2>Actualizar Producto</h2>
-      <form action="/admin/actualizar-producto/<%= producto.id %>" method="POST">
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
+    <% if (productoActualizado) { %>
+      <!-- Detalles del producto actualizado -->
+      <div class="producto-actualizado">
+        <p>Producto actualizado:</p>
+        <ul>
+          <li>ID: <%= producto.id %></li>
+          <li>Precio: <%= producto.precio %></li>
+          <li>Descripción: <%= producto.descripcion %></li>
+          <!-- Agrega aquí los detalles adicionales necesarios -->
+        </ul>
+      </div>
+      <!-- Enlace para volver a la página principal -->
+      <a href="/" class="volver-enlace">Volver a la página principal</a>
+    <% } else { %>
+      <!-- Producto encontrado, mostrar detalles y formulario de actualización -->
+      <img src="<%= producto.imagen %>" alt="Imagen del producto">
+      <div class="formulario-actualizar">
+        <h2>Actualizar Producto</h2>
+        <form action="/admin/actualizar-producto/<%= producto.id %>" method="POST">
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
 
-        <!-- Puedes agregar aquí los campos adicionales necesarios -->
+          <!-- Puedes agregar aquí los campos adicionales necesarios -->
 
-        <button type="submit">Actualizar</button>
-      </form>
-    </div>
+          <button type="submit">Actualizar</button>
+        </form>
+      </div>
+    <% } %>
   <% } else if (busquedaId) { %>
     <!-- Mensaje de "Producto no encontrado" para resultados de búsqueda vacíos -->
     <p>Resultados de la búsqueda: No se encontraron productos</p>

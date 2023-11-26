@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   const producto = productos.find((p) => p.id === busquedaId);
 
   // Renderiza la vista de búsqueda o actualización según la existencia del producto
-  res.render('actualizarProducto', { producto, busquedaId, header: 'header' });
+  res.render('actualizarProducto', { producto, busquedaId, productoActualizado: false, header: 'header' });
 });
 
 // Ruta POST para manejar la actualización del producto
@@ -23,7 +23,11 @@ router.post('/:id', (req, res) => {
     productos[index].precio = updatedProduct.precio;
     productos[index].descripcion = updatedProduct.descripcion;
 
-    return res.json(productos[index]);
+    // Marcamos el producto como actualizado
+    const productoActualizado = productos[index];
+
+    // Renderizamos la vista con el mensaje y los detalles del producto actualizado
+    res.render('actualizarProducto', { producto: productoActualizado, productoActualizado: true, header: 'header' });
   } else {
     res.status(404).json({ error: 'Producto no encontrado' });
   }
