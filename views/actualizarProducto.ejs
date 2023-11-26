@@ -11,50 +11,34 @@
 </head>
 <body>
   <h1>Actualizar Producto</h1>
-  
-<!-- Formulario de búsqueda -->
-<form class="formulario-busqueda" action="/admin/actualizar-producto" method="GET">
-  <label for="busqueda">Buscar por ID:</label>
-  <input type="text" id="busqueda" name="busqueda" required>
-  <button type="submit">Buscar</button>
-</form>
 
+  <!-- Formulario de búsqueda -->
+  <form class="formulario-busqueda" action="/admin/actualizar-producto" method="GET">
+    <label for="busqueda">Buscar por ID:</label>
+    <input type="text" id="busqueda" name="busqueda" required>
+    <button type="submit">Buscar</button>
+  </form>
 
   <% if (producto) { %>
-    <!-- Formulario de actualización con detalles del producto -->
+    <!-- Producto encontrado, mostrar detalles y formulario de actualización -->
+    <img src="<%= producto.imagen %>" alt="Imagen del producto">
     <div class="formulario-actualizar">
       <h2>Actualizar Producto</h2>
       <form action="/admin/actualizar-producto/<%= producto.id %>" method="POST">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" value="<%= producto.nombre %>" required>
-
         <label for="precio">Precio:</label>
         <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
 
         <label for="descripcion">Descripción:</label>
         <textarea id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
 
-        <!-- Agrega aquí los campos adicionales necesarios -->
+        <!-- Puedes agregar aquí los campos adicionales necesarios -->
 
         <button type="submit">Actualizar</button>
       </form>
     </div>
-  <% } else { %>
-    <!-- Mensaje de "Producto no encontrado" o resultados de búsqueda -->
-    <p>
-      <% if (resultados && resultados.length > 0) { %>
-        Resultados de la búsqueda:
-        <ul>
-          <% resultados.forEach(resultado => { %>
-            <li>ID: <%= resultado.id %>, Nombre: <%= resultado.nombre %></li>
-            <!-- Puedes mostrar más detalles del resultado según sea necesario -->
-          <% }) %>
-        </ul>
-      <% } else { %>
-        Producto no encontrado
-      <% } %>
-    </p>
+  <% } else if (busquedaId) { %>
+    <!-- Mensaje de "Producto no encontrado" para resultados de búsqueda vacíos -->
+    <p>Resultados de la búsqueda: No se encontraron productos</p>
   <% } %>
-
 </body>
 </html>

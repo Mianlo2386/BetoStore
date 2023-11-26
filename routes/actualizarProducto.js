@@ -1,34 +1,25 @@
 // actualizarProducto.js
-
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const upload = multer({ dest: 'public/images' });
 const productos = require('../productos.json');
 
-// Ruta GET para renderizar la vista de actualización o resultados de búsqueda
+// Ruta GET para renderizar la vista de búsqueda o actualización
 router.get('/', (req, res) => {
   const busquedaId = parseInt(req.query.busqueda);
   const producto = productos.find((p) => p.id === busquedaId);
 
-  if (producto) {
-    // Renderiza la vista de actualización con el producto encontrado
-    res.render('actualizarProducto', { producto, header: 'header' });
-  } else {
-    // Renderiza la vista con un mensaje de "Producto no encontrado"
-    res.render('actualizarProducto', { resultados: [], header: 'header' });
-  }
+  // Renderiza la vista de búsqueda o actualización según la existencia del producto
+  res.render('actualizarProducto', { producto, busquedaId, header: 'header' });
 });
 
 // Ruta POST para manejar la actualización del producto
-router.post('/:id', upload.single('imagen'), (req, res) => {
+router.post('/:id', (req, res) => {
   const productoId = parseInt(req.params.id);
   const updatedProduct = req.body;
 
   const index = productos.findIndex((p) => p.id === productoId);
 
   if (index !== -1) {
-    productos[index].nombre = updatedProduct.nombre;
     productos[index].precio = updatedProduct.precio;
     productos[index].descripcion = updatedProduct.descripcion;
 
