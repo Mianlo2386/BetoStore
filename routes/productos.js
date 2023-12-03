@@ -1,8 +1,8 @@
+// routes/productos.js
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
-
 const productos = require('../productos.json');
 
 router.get('/', (req, res) => {
@@ -54,6 +54,21 @@ router.get('/buscar', (req, res) => {
   );
 
   res.render('resultados', { resultados, header: 'header' });
+});
+// Ruta para eliminar un producto por ID
+router.post('/eliminar/:id', (req, res) => {
+  const productoId = parseInt(req.params.id);
+
+  // Encuentra el índice del producto a eliminar
+  const index = productos.findIndex((p) => p.id === productoId);
+
+  if (index !== -1) {
+    // Elimina el producto del array
+    productos.splice(index, 1);
+    res.redirect('/productos'); // Redirige a la lista de productos u otra página de tu elección
+  } else {
+    res.status(404).send('Producto no encontrado');
+  }
 });
 
 module.exports = router;

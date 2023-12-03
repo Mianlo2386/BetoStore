@@ -1,0 +1,39 @@
+/* confirmacionAumento.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  h1 {
+    color: #009688;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  
+  .volver-enlace {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #009688;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .volver-enlace:hover {
+    background-color: #00796b;
+  }
+  

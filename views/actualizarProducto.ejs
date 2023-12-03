@@ -1,5 +1,3 @@
-<!-- actualizarProducto.ejs -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +9,11 @@
 </head>
 <body>
   <h1>Actualizar Producto</h1>
+
+  <!-- Enlace/botón para ir a la página de aumento general -->
+  <form action="/admin/aumento-general" method="GET" class="enlace-aumento-general">
+    <button type="submit">Ir a Aumento General</button>
+  </form>
 
   <!-- Formulario de búsqueda -->
   <form class="formulario-busqueda" action="/admin/actualizar-producto" method="GET">
@@ -28,6 +31,7 @@
           <li>ID: <%= producto.id %></li>
           <li>Precio: <%= producto.precio %></li>
           <li>Descripción: <%= producto.descripcion %></li>
+          <li>Imagen: <img src="<%= producto.imagen %>" alt="Imagen del producto"></li>
           <!-- Agrega aquí los detalles adicionales necesarios -->
         </ul>
       </div>
@@ -36,14 +40,19 @@
     <% } else { %>
       <!-- Producto encontrado, mostrar detalles y formulario de actualización -->
       <img src="<%= producto.imagen %>" alt="Imagen del producto">
+
       <div class="formulario-actualizar">
         <h2>Actualizar Producto</h2>
-        <form action="/admin/actualizar-producto/<%= producto.id %>" method="POST">
+        <form action="/admin/actualizar-producto/<%= producto.id %>" method="POST" enctype="multipart/form-data">
           <label for="precio">Precio:</label>
           <input type="number" id="precio" name="precio" value="<%= producto.precio %>" required>
 
           <label for="descripcion">Descripción:</label>
           <textarea id="descripcion" name="descripcion" required><%= producto.descripcion %></textarea>
+
+          <!-- Input para cambiar la imagen -->
+          <label for="imagen">Cambiar Imagen:</label>
+          <input type="file" id="imagen" name="imagen" accept="image/*">
 
           <!-- Puedes agregar aquí los campos adicionales necesarios -->
 

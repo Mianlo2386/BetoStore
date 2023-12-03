@@ -1,0 +1,23 @@
+<!-- aumentoGeneral.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aumento General de Precios</title>
+  <link rel="stylesheet" href="/css/actualizarProducto.css">
+</head>
+<body>
+  <h1>Aumento General de Precios</h1>
+
+  <div class="formulario-aumento-general">
+    <h2>Ingrese el Porcentaje de Aumento General:</h2>
+    <form action="/admin/aumento-general" method="POST">
+      <label for="porcentajeGeneral">Porcentaje de Aumento General:</label>
+      <input type="number" id="porcentajeGeneral" name="porcentajeGeneral" min="0" step="1" placeholder="0" required>
+      <button type="submit">Aplicar Aumento General</button>
+    </form>
+  </div>
+</body>
+</html>

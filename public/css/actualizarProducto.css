@@ -1,3 +1,5 @@
+/* ActualizarProducto.css */
+
 body {
   background-color: #121212; /* Fondo oscuro */
   color: #fff; /* Texto blanco */
@@ -15,7 +17,8 @@ img {
 }
 
 .formulario-actualizar,
-.formulario-busqueda {
+.formulario-busqueda,
+.formulario-aumento-general { /* Nueva clase para el formulario de aumento general */
   max-width: 600px;
   margin: 50px auto;
   background-color: #333; /* Fondo formulario */
@@ -34,7 +37,9 @@ label {
 }
 
 input,
-textarea {
+textarea,
+#porcentaje,
+#porcentajeGeneral { /* Nueva ID para el campo de porcentaje de aumento general */
   width: 100%;
   padding: 10px;
   margin-top: 5px;

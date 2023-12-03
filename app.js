@@ -1,32 +1,31 @@
  /* app.js */
-const uri = process.env.MONGODB_URI;
-const express = require('express');
-const app = express();
-const port = 3000;
-const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
-const productos = require('./productos.json');
-const path = require('path'); // Importar el módulo 'path' 
-const multer = require('multer');
-const upload = multer({ dest: 'public/images' }); // El directorio 'uploads/' será creado automáticamente
+ const express = require('express');
+ const app = express();
+ const port = 3000;
+ const dotenv = require('dotenv');
+ const bodyParser = require('body-parser');
+ const path = require('path');
+ const multer = require('multer');
+ const upload = multer({ dest: 'public/images' });
+ const routes = require('./routes');
+ const actualizarProductoRoutes = require('./routes/actualizarProducto');
 
-const routes = require('./routes'); // Importar el archivo index.js de la carpeta routes
+ dotenv.config();
+ 
+ app.use('/js', express.static(path.join(__dirname, 'server/js')));
+ app.use(express.static(path.join(__dirname, 'public')));
+ app.use(express.urlencoded({ extended: true }));
+ app.set('views', path.join(__dirname, 'views'));
+ app.set('view engine', 'ejs');
+ 
+ app.use('/', routes);
+ 
+ app.get('/', (req, res) => {
+   res.render('index', { productos, productosDestacados, header: 'header' });
+ });
 
-const actualizarProductoRoutes = require('./routes/actualizarProducto');
-
-dotenv.config();
-
-// Accede a las variables de entorno cargadas desde .env
-
-
-app.use('/js', express.static(path.join(__dirname, 'server/js')));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use('/', routes); // Usar las rutas definidas en el archivo index.js de la carpeta routes
-
-app.set('views', path.join(__dirname, 'views'));
-
+const productosRoutes = require('./routes/productos');
+app.use('/productos', productosRoutes);
 
 const productosDestacados = require('./server/productosDestacados');
 
@@ -87,6 +86,19 @@ app.use('/admin/actualizar-producto', actualizarProductoRoutes);
   res.json(resultados);
 });
  */
+// Rutas para el aumento general de precios
+const aumentoGeneralRoutes = require('./routes/aumentoGeneral');
+
+// Ruta GET para renderizar la página de aumento general
+app.get('/admin/aumento-general', (req, res) => {
+  res.render('aumentoGeneral', { header: 'header' });
+});
+
+// Utiliza el middleware de aumento general para manejar la lógica específica
+app.use('/admin/aumento-general', aumentoGeneralRoutes);
+
+// Luego, define las rutas principales
+app.use('/', routes);
 
 app.get('/contacto', (req, res) => {
   res.render('contacto', { header: 'header' });
