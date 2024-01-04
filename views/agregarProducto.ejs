@@ -8,33 +8,23 @@
   <title>Agregar Producto - BetoStore</title>
 </head>
 <body>
-  <% include('header') %>
-  
   <div class="formulario-agregar">
-    <h2>Agregar nuevo producto</h2>
-
+    <h1>Agregar Producto</h1>
     <form action="/admin/agregar-producto" method="POST" enctype="multipart/form-data">
-      <label for="id">ID:</label>
-      <input type="text" id="id" name="id" required>
-
-      <!-- <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required> -->
-
       <label for="descripcion">Descripción:</label>
-      <textarea id="descripcion" name="descripcion" required></textarea>
-
+      <input type="text" id="descripcion" name="descripcion" required>
+     
       <label for="precio">Precio:</label>
-      <input type="text" id="precio" name="precio" required>
-
+      <input type="number" id="precio" name="precio" required>
+     
       <label for="imagen">Imagen:</label>
-      <input type="file" id="imagen" name="imagen" accept="image/*">
-
-      <!-- Otros campos según sea necesario -->
+      <input type="file" id="imagen" name="imagen" required accept="image/*">
+     
+      <!-- Otros campos del formulario aquí -->
 
       <button type="submit">Agregar Producto</button>
     </form>
-  </div>
-  
-  <% include('footer') %>
+
+ 
 </body>
 </html>

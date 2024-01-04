@@ -1,61 +1,50 @@
- /* app.js */
- const express = require('express');
- const app = express();
- const port = 3000;
- const dotenv = require('dotenv');
- const bodyParser = require('body-parser');
- const path = require('path');
- const multer = require('multer');
- const upload = multer({ dest: 'public/images' });
- const routes = require('./routes');
- const actualizarProductoRoutes = require('./routes/actualizarProducto');
+const express = require('express');
+const app = express();
+const port = 3000;
+const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
+const path = require('path');
+const multer = require('multer');
+const upload = multer({ dest: path.join(__dirname, 'uploads/') });
+const routes = require('./routes');
+const actualizarProductoRoutes = require('./routes/actualizarProducto');
+const agregarProductoRoutes = require('./routes/agregarProducto');
+const eliminarProductoRouter = require('./routes/eliminarProducto');
 
- dotenv.config();
- 
- app.use('/js', express.static(path.join(__dirname, 'server/js')));
- app.use(express.static(path.join(__dirname, 'public')));
- app.use(express.urlencoded({ extended: true }));
- app.set('views', path.join(__dirname, 'views'));
- app.set('view engine', 'ejs');
- 
- app.use('/', routes);
- 
- app.get('/', (req, res) => {
-   res.render('index', { productos, productosDestacados, header: 'header' });
- });
+dotenv.config();
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/admin/eliminar-producto', eliminarProductoRouter);
+
+app.use('/admin/agregar-producto', agregarProductoRoutes);
+
+
+
+app.use('/js', express.static(path.join(__dirname, 'server/js')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
+});
+
+app.use('/', routes);
+
+app.get('/', (req, res) => {
+  res.render('index', { productos, productosDestacados, header: 'header' });
+});
 
 const productosRoutes = require('./routes/productos');
 app.use('/productos', productosRoutes);
 
 const productosDestacados = require('./server/productosDestacados');
 
-app.set('view engine', 'ejs');
-
-
-//Probando /productos
-/* app.get('/productos', (req, res) => {
-  res.json(productos);
-});  */
-
-
 app.get('/productos', (req, res) => {
   res.render('productos', { productos, header: 'header' });
-});  
-
-
-app.get('/', (req, res) => {
-  res.render('index', { productos, productosDestacados, header: 'header' }); // Pasa ambas variables a la vista
 });
-
-
-
-
-// app.js
-app.get('/admin/agregar-producto', (req, res) => {
-  res.render('agregarProducto', { header: 'header' });
-});
-
-
 
 // Configura la ruta de manejo de la carga de archivos
 app.post('/subir-imagen', upload.single('miImagen'), (req, res) => {
@@ -66,7 +55,7 @@ app.post('/subir-imagen', upload.single('miImagen'), (req, res) => {
 app.get('/buscar', (req, res) => {
   const query = req.query.q;
   // Realiza la búsqueda por ID o descripción
-  const resultados = productos.filter(producto =>
+  const resultados = productos.filter((producto) =>
     producto.id === parseInt(query) || producto.descripcion.includes(query)
   );
 
@@ -74,18 +63,7 @@ app.get('/buscar', (req, res) => {
 });
 
 app.use('/admin/actualizar-producto', actualizarProductoRoutes);
-//PRUEBA DE BUSQUEDA
 
-/* app.get('/buscar', (req, res) => {
-  const query = req.query.q;
-  // Realiza la búsqueda por ID o descripción
-  const resultados = productos.filter(producto =>
-    producto.id === parseInt(query) || producto.descripcion.includes(query)
-  );
-
-  res.json(resultados);
-});
- */
 // Rutas para el aumento general de precios
 const aumentoGeneralRoutes = require('./routes/aumentoGeneral');
 
@@ -97,15 +75,11 @@ app.get('/admin/aumento-general', (req, res) => {
 // Utiliza el middleware de aumento general para manejar la lógica específica
 app.use('/admin/aumento-general', aumentoGeneralRoutes);
 
-// Luego, define las rutas principales
-app.use('/', routes);
-
 app.get('/contacto', (req, res) => {
   res.render('contacto', { header: 'header' });
 });
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
 
 // Ruta para manejar el envío del formulario de contacto
 app.post('/enviar-consulta', (req, res) => {
@@ -116,8 +90,8 @@ app.post('/enviar-consulta', (req, res) => {
     service: 'Gmail',
     auth: {
       user: process.env.CORREOGMAIL,
-      pass: process.env.PASSGMAIL
-    }
+      pass: process.env.PASSGMAIL,
+    },
   });
 
   // Detalles del correo a enviar
@@ -125,7 +99,7 @@ app.post('/enviar-consulta', (req, res) => {
     from: process.env.CORREOGMAIL, // Usar la variable de entorno para el correo del remitente
     to: process.env.CORREOGMAIL, // Usar la variable de entorno para el correo del destinatario o el correo donde deseas recibir consultas
     subject: 'Consulta de BetoStore',
-    text: `Nombre: ${nombre}\nCorreo: ${email}\nMensaje: ${mensaje}`
+    text: `Nombre: ${nombre}\nCorreo: ${email}\nMensaje: ${mensaje}`,
   };
 
   // Envía el correo electrónico
@@ -140,9 +114,6 @@ app.post('/enviar-consulta', (req, res) => {
   res.redirect('/'); // Redirige al usuario de nuevo a la página principal o a una página de confirmación
 });
 
-app.listen(port, () => {
-  console.log(`Servidor en ejecución en http://localhost:${port}`);
-});
 app.get('/producto/:id', (req, res) => {
   const productoId = req.params.id; // Obtiene el ID del producto desde la URL
   // Encuentra el producto correspondiente basado en el ID
@@ -156,6 +127,7 @@ app.get('/producto/:id', (req, res) => {
     res.render('producto', { producto, header: 'header' });
   }
 });
+
 const { connectToDatabase } = require('./server/database.js');
 
 async function main() {
@@ -168,3 +140,7 @@ async function main() {
 }
 
 main();
+
+app.listen(port, () => {
+  console.log(`Servidor en ejecución en http://localhost:${port}`);
+});

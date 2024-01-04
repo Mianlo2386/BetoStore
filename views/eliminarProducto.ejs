@@ -1,0 +1,22 @@
+<!-- eliminarProducto.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliminar Producto - BetoStore</title>
+  <link rel="stylesheet" href="/css/eliminarProducto.css">
+</head>
+<body>
+  <h1>Eliminar Producto</h1>
+
+  <form action="/admin/eliminar-producto" method="POST">
+    <label for="productoId">ID del Producto a Eliminar:</label>
+    <input type="number" id="productoId" name="productoId" required>
+    <button type="submit">Eliminar Producto</button>
+  </form>
+
+  <a href="/" class="volver-enlace">Volver a la Página Principal</a>
+</body>
+</html>

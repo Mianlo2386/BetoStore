@@ -26,3 +26,4 @@ connectToDatabase()
   });
 
   module.exports = { connectToDatabase };
+  
