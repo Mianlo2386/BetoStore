@@ -10,16 +10,12 @@ const routes = require('./routes');
 const actualizarProductoRoutes = require('./routes/actualizarProducto');
 const agregarProductoRoutes = require('./routes/agregarProducto');
 const eliminarProductoRouter = require('./routes/eliminarProducto');
+const aumentoGeneralRoutes = require('./routes/aumentoGeneral');
+const indexRoutes = require('./routes/index');
 
 dotenv.config();
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use('/admin/eliminar-producto', eliminarProductoRouter);
-
-app.use('/admin/agregar-producto', agregarProductoRoutes);
-
-
 
 app.use('/js', express.static(path.join(__dirname, 'server/js')));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,28 +27,19 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
+app.use('/', indexRoutes); 
+
+/* app.use('/admin/eliminar-producto', eliminarProductoRouter);
+
+app.use('/admin/agregar-producto', agregarProductoRoutes);
+
+app.use('/admin/actualizar-producto', actualizarProductoRoutes);
+
+app.use('/admin/aumento-general', aumentoGeneralRoutes); */
+
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-  res.render('index', { productos, productosDestacados, header: 'header' });
-});
-
-const productosRoutes = require('./routes/productos');
-app.use('/productos', productosRoutes);
-
-const productosDestacados = require('./server/productosDestacados');
-
-app.get('/productos', (req, res) => {
-  res.render('productos', { productos, header: 'header' });
-});
-
-// Configura la ruta de manejo de la carga de archivos
-app.post('/subir-imagen', upload.single('miImagen'), (req, res) => {
-  // Aquí puedes manejar la lógica después de cargar la imagen
-  res.send('Imagen subida con éxito');
-});
-
-app.get('/buscar', (req, res) => {
+/* app.get('/buscar', (req, res) => {
   const query = req.query.q;
   // Realiza la búsqueda por ID o descripción
   const resultados = productos.filter((producto) =>
@@ -61,19 +48,7 @@ app.get('/buscar', (req, res) => {
 
   res.render('resultados', { resultados, header: 'header' });
 });
-
-app.use('/admin/actualizar-producto', actualizarProductoRoutes);
-
-// Rutas para el aumento general de precios
-const aumentoGeneralRoutes = require('./routes/aumentoGeneral');
-
-// Ruta GET para renderizar la página de aumento general
-app.get('/admin/aumento-general', (req, res) => {
-  res.render('aumentoGeneral', { header: 'header' });
-});
-
-// Utiliza el middleware de aumento general para manejar la lógica específica
-app.use('/admin/aumento-general', aumentoGeneralRoutes);
+ */
 
 app.get('/contacto', (req, res) => {
   res.render('contacto', { header: 'header' });

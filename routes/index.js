@@ -7,13 +7,15 @@ const path = require('path');
 const productosRoutes = require('./productos');
 const aumentoGeneralRoutes = require('./aumentoGeneral');
 const actualizarProductoRoutes = require('./actualizarProducto');
+const busquedaRoutes = require('./busqueda')
 
 router.use('/productos', productosRoutes);
 router.use('/admin/aumento-general', aumentoGeneralRoutes);
 router.use('/admin', actualizarProductoRoutes);
+router.use('/buscar', busquedaRoutes);
 
 const productos = require('../productos.json');
-const productosDestacados = require('../server/productosDestacados'); 
+const productosDestacados = require('./productosDestacados'); 
 
 router.get('/', (req, res) => {
   res.render('index', { productos, productosDestacados, header: 'header' });
