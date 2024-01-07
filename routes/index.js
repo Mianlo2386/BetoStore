@@ -8,11 +8,13 @@ const productosRoutes = require('./productos');
 const aumentoGeneralRoutes = require('./aumentoGeneral');
 const actualizarProductoRoutes = require('./actualizarProducto');
 const busquedaRoutes = require('./busqueda')
+const contactoRoutes = require('./contacto');
 
 router.use('/productos', productosRoutes);
 router.use('/admin/aumento-general', aumentoGeneralRoutes);
 router.use('/admin', actualizarProductoRoutes);
 router.use('/buscar', busquedaRoutes);
+router.use('/contacto', contactoRoutes);
 
 const productos = require('../productos.json');
 const productosDestacados = require('./productosDestacados'); 
