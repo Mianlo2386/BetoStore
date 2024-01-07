@@ -10,6 +10,8 @@ const upload = multer({ dest: path.join(__dirname, 'uploads/') });
 const routes = require('./routes');
 const indexRoutes = require('./routes/index');
 const { MongoClient } = require('mongodb');
+const adminRoutes = require('./routes/adminRoutes');
+
 
 dotenv.config();
 
@@ -25,7 +27,9 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong!');
 });
 
-app.use('/', indexRoutes); 
+app.use('/', indexRoutes);
+
+app.use('/admin', adminRoutes);
 
 app.use('/', routes);
 
