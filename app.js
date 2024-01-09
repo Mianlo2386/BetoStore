@@ -12,6 +12,7 @@ const agregarProductoRoutes = require('./routes/agregarProducto');
 const eliminarProductoRouter = require('./routes/eliminarProducto');
 const aumentoGeneralRoutes = require('./routes/aumentoGeneral');
 const indexRoutes = require('./routes/index');
+const adminRoutes = require('./routes/adminRoutes');
 
 dotenv.config();
 
@@ -28,6 +29,8 @@ app.use((err, req, res, next) => {
 });
 
 app.use('/', indexRoutes); 
+
+app.use('/admin', adminRoutes);
 
 /* app.use('/admin/eliminar-producto', eliminarProductoRouter);
 

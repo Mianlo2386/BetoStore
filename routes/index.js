@@ -10,8 +10,8 @@ const actualizarProductoRoutes = require('./actualizarProducto');
 const busquedaRoutes = require('./busqueda')
 
 router.use('/productos', productosRoutes);
-router.use('/admin/aumento-general', aumentoGeneralRoutes);
-router.use('/admin', actualizarProductoRoutes);
+/* router.use('/admin/aumento-general', aumentoGeneralRoutes);
+router.use('/admin', actualizarProductoRoutes); */
 router.use('/buscar', busquedaRoutes);
 
 const productos = require('../productos.json');
@@ -32,9 +32,9 @@ router.get('/producto/:id', (req, res) => {
   }
 });
 
-router.post('/admin/agregar-producto', upload.single('imagen'), (req, res) => {
+/* router.post('/admin/agregar-producto', upload.single('imagen'), (req, res) => {
   // Tu lógica para agregar un producto...
-});
+}); */
 
 router.get('/admin/agregar-producto', (req, res) => {
   res.render('agregarProducto', { header: 'header' });
